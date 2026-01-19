@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %} Home Page {% endblock %}
+{% block style %}<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> {% endblock %}
+
+{%block content%}
+    <div class="form-container">
+        <h1>Fill Details</h1>
+        
+        <form method="POST" action="/form">
+            
+            <div class="input-wrapper">
+                <label>Sender Details</label>
+                <div class="mobile-group">
+                    <span class="prefix">+91</span>
+                    <input type="number" name="SenderMobile" placeholder="Sender Mobile Number" required>
+                </div>
+            </div>
+
+            <div class="input-wrapper">
+                <label>Receiver Details</label>
+                <div class="mobile-group">
+                    <span class="prefix">+91</span>
+                    <input type="number" name="ReceiverMobile" placeholder="Receiver Mobile Number" required>
+                </div>
+            </div>
+
+            <div class="input-wrapper">
+                <label>Scheduling Time</label>
+                <input type="time" name="SchedulingTime" required>
+            </div>
+
+            <div class="input-wrapper">
+                <label>Your Message</label>
+                <textarea id="msg" name="Msg" rows="4" placeholder="Write your message here..." required></textarea>
+            </div>
+
+            <div class="input-wrapper">
+                <label>Iteration Count</label>
+                <input type="number" name="Count" placeholder="e.g. 5" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Details</button>
+            
+        </form>
+    </div>
+{% endblock %}

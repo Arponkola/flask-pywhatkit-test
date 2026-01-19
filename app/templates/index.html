@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %} Home Page {% endblock %}
+{% block content %}
+    <div style="display:flex; align-item:center; justify-content:center">
+        <h1>
+            Welcome To Our Home Page
+        </h1>
+    </div>
+    <div style="display:flex; align-item:center; justify-content:center; gap: 20px;">
+        <a href="/form">Form</a>
+        <a href="/home/logout">Logout</a>
+    </div>
+
+    </br>
+    </br>
+    </br>
+
+    <div style="
+    display:flex;
+    align-item:center;
+    justify-content:center;
+    gap: 20px;
+    flex-direction:row">
+    {% if user_details %}
+        <table>
+            <tr>
+                <th>SENDER_MOBILE</th>
+                <th>RECEIVER_MOBILE</th>
+                <th>SENDING TIME</th>
+                <th>MESSEGE</th>
+                <th>COUNT</th>
+                <td>STATUS</th>
+            </tr>
+            {% for user_detail in user_details %}
+                <tr>
+                    <td>{{user_detail.sender_mobile}}</td>
+                    <td>{{user_detail.receiver_mobile}}</td>
+                    <td>{{user_detail.scheduling_time}}</td>
+                    <td>{{user_detail.msg}}</td>
+                    <td>{{user_detail.count_times}}</td>
+                    <td>{{user_detail.status}}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    {% endif %}
+    </div>
+{% endblock %}
